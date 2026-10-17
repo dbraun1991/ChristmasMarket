@@ -64,7 +64,7 @@ h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.05;
   filter: drop-shadow(0 3px 2px rgb(0 0 0 / .4)); animation: drive 11s linear infinite; }
 /* Headlight cone. The car is mirrored, so local "right" is the front bumper:
    narrow and bright at the lamp, widening and fading towards the road ahead. */
-.car::before { content: ''; position: absolute; right: calc(100% - 4px); top: 58%; width: 80px; height: 26px; translate: 0 -50%;
+.car::before { content: ''; position: absolute; right: calc(100% - 4px); top: 63%; width: 80px; height: 26px; translate: 0 -50%;
   clip-path: polygon(0 0, 100% 42%, 100% 58%, 0 100%);
   background: linear-gradient(to left, rgb(255 238 180 / .85), rgb(255 238 180 / 0)); }
 .hero-text { position: absolute; left: max(16px, env(safe-area-inset-left, 0px), 6vw); right: 16px; top: 13%; max-width: 640px; z-index: 3;
