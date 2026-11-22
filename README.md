@@ -20,8 +20,8 @@ Einmalig im Repo: **Settings → Pages → Source: GitHub Actions**.
 
 ## Daten
 
-Öffnungszeiten und Preise laut eifel.info, Stand 17.10.2026. Für Reifferscheid gibt es
-abweichende Angaben aus Vorjahren. Vor der Fahrt beim Veranstalter prüfen.
+Öffnungszeiten und Preise laut eifel.info, burgsatzvey.de und StädteRegion Aachen,
+Stand 22.11.2026.
 
 ## Lizenz
 
