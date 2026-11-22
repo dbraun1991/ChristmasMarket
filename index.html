@@ -145,18 +145,6 @@ section h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 800; letter-s
 .tips li { border-left: 3px solid var(--fir); padding-left: 14px; }
 .tips b { display: block; }
 
-/* ask */
-.ask { text-align: left; }
-.ask-box { background: linear-gradient(135deg, var(--night1), var(--night2)); color: #fff; border-radius: 22px; padding: clamp(24px, 5vw, 44px); display: grid; gap: 16px; }
-.ask-box h2 { color: #fff; margin: 0; }
-.ask-box p { margin: 0; max-width: 52ch; color: #dfe6f2; }
-.btns { display: flex; flex-wrap: wrap; gap: 12px; }
-.btns button { font: 700 1rem var(--body); border-radius: 999px; padding: .75em 1.4em; border: 2px solid #f5b44f; cursor: pointer; }
-.btns button { background: transparent; color: #fff; transition: background .15s, color .15s; }
-.btns button:hover { background: rgb(245 180 79 / .15); }
-.btns button[aria-pressed="true"] { background: #f5b44f; color: #1a1408; }
-.btns button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
-#answer { min-height: 1.6em; font-weight: 700; color: #fbe3b4; }
 
 /* weather */
 .weather { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0 0 28px; padding: 0; list-style: none; }
@@ -424,19 +412,6 @@ footer p { margin: .3em 0; max-width: 80ch; }
     </div>
   </section>
 
-  <section class="ask" style="padding-top:0">
-    <div class="wrap">
-      <div class="ask-box">
-        <h2>Kommst du mit?</h2>
-        <p>Ich fahre, du suchst den ersten Glühweinstand aus. Sag einfach Bescheid.</p>
-        <div class="btns">
-          <button id="btn-yes" type="button" aria-pressed="false">Ja, bin dabei!</button>
-          <button id="btn-maybe" type="button" aria-pressed="false">Klingt gut, lass reden</button>
-        </div>
-        <p id="answer" aria-live="polite"></p>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -548,17 +523,6 @@ footer p { margin: .3em 0; max-width: 80ch; }
       cards.forEach(c => { c.innerHTML = c.querySelector('small').outerHTML + '<span class="d">Vorhersage gerade nicht erreichbar.</span>'; });
     });
 
-  // Answer buttons (local only)
-  const out = document.getElementById('answer');
-  const replies = {
-    'btn-yes': 'Juhu! Dann buche ich die Unterkunft. 🎄',
-    'btn-maybe': 'Gut, dann besprechen wir das beim nächsten Kaffee.'
-  };
-  const btns = document.querySelectorAll('.btns button');
-  btns.forEach(b => b.addEventListener('click', () => {
-    btns.forEach(o => o.setAttribute('aria-pressed', String(o === b)));
-    out.textContent = replies[b.id];
-  }));
 })();
 </script>
 </body>
