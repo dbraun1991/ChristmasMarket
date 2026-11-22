@@ -22,6 +22,6 @@ ox, oy = tx0 * 256, ty0 * 256
 crop = big.crop((int(x0 - ox), int(y0 - oy), int(x1 - ox), int(y1 - oy)))
 crop.save(OUT, 'JPEG', quality=82, optimize=True)
 print('size', crop.size, os.path.getsize(OUT))
-for name, lat, lon in [('Reifferscheid', 50.4767979, 6.4663515), ('Monschau', 50.5552388, 6.2422802), ('Satzvey', 50.6199284, 6.7065)]:
+for name, lat, lon in [('Reifferscheid', 50.4767979, 6.4663515), ('Monschau', 50.5552388, 6.2422802), ('Satzvey', 50.6199284, 6.7065), ('Wolfert', 50.4403123, 6.4658947)]:
     x, y = px(lat, lon)
     print(name, round((x - x0) / crop.size[0] * 100, 2), round((y - y0) / crop.size[1] * 100, 2))

@@ -108,6 +108,9 @@ section h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 800; letter-s
 .pin .dot span { rotate: 45deg; color: #fff; font: 800 .72rem var(--body); }
 .pin .lbl { order: -1; margin-bottom: 4px; padding: .15em .55em; border-radius: 6px; background: #fffffff0; color: #17202c; font: 700 .85rem var(--body); white-space: nowrap; box-shadow: 0 2px 6px rgb(0 0 0 / .2); }
 .pin:hover .dot, .pin:focus-visible .dot { background: var(--fir); }
+.pin.home .dot { background: var(--fir); }
+.pin.home:hover .dot, .pin.home:focus-visible .dot { background: var(--berry); }
+.pin.home .lbl { position: absolute; left: calc(100% + 6px); bottom: 2px; margin: 0; }
 .pin:focus-visible { outline: none; } .pin:focus-visible .lbl { outline: 2px solid var(--fir); }
 .map figcaption { position: absolute; right: 0; bottom: 0; padding: 2px 8px; background: #ffffffd9; color: #17202c; font-size: .75rem; }
 .map figcaption a { color: #17202c; font-weight: 400; }
@@ -211,15 +214,16 @@ footer p { margin: .3em 0; max-width: 80ch; }
   <section style="padding-top:0">
     <div class="wrap">
       <div class="route">
-        <svg viewBox="0 0 900 220" role="img" aria-label="Route: Reifferscheid, Monschau und Burg Satzvey mit Fahrzeiten">
+        <svg viewBox="0 0 900 220" role="img" aria-label="Route: Reifferscheid mit Unterkunft im Nachbarort Wolfert, Monschau und Burg Satzvey mit Fahrzeiten">
           <path class="path" d="M90 150 C 200 60, 300 60, 420 120 S 640 190, 800 90"/>
           <circle class="stop" cx="90" cy="150" r="14"/>
           <circle class="stop" cx="420" cy="120" r="14"/>
           <circle class="stop" cx="800" cy="90" r="14"/>
           <text class="name" x="90" y="190" text-anchor="middle">Reifferscheid</text>
           <text class="sub" x="90" y="208" text-anchor="middle">Fr abends</text>
+          <text class="sub" x="90" y="124" text-anchor="middle">🏠 Wolfert</text>
           <text class="name" x="420" y="160" text-anchor="middle">Monschau</text>
-          <text class="sub" x="420" y="178" text-anchor="middle">Sa, ganzer Tag + Übernachtung</text>
+          <text class="sub" x="420" y="178" text-anchor="middle">Sa, ganzer Tag</text>
           <text class="name" x="800" y="130" text-anchor="middle">Burg Satzvey</text>
           <text class="sub" x="800" y="148" text-anchor="middle">So, auf dem Heimweg</text>
           <text class="leg" x="250" y="62" text-anchor="middle">ca. 30 min · 25 km</text>
@@ -227,7 +231,7 @@ footer p { margin: .3em 0; max-width: 80ch; }
           <text class="sub" x="800" y="40" text-anchor="middle">→ Richtung Köln</text>
         </svg>
       </div>
-      <p class="note">Fahrzeiten grob geschätzt, ohne Stau. Satzvey liegt Richtung Köln, also auf dem Rückweg.</p>
+      <p class="note">Fahrzeiten grob geschätzt, ohne Stau. Wir schlafen in Wolfert, ein paar Minuten von Reifferscheid. Nach Monschau sind es von dort rund 35 Minuten, Satzvey liegt Richtung Köln, also auf dem Rückweg.</p>
     </div>
   </section>
 
@@ -236,16 +240,18 @@ footer p { margin: .3em 0; max-width: 80ch; }
       <p class="eyebrow">Karte</p>
       <h2>Wo das liegt</h2>
       <figure class="map">
-        <img src="map.jpg" width="1034" height="619" alt="Karte der Nordeifel zwischen Monschau, Schleiden und Euskirchen mit den drei Weihnachtsmärkten">
+        <img src="map.jpg" width="1034" height="619" alt="Karte der Nordeifel zwischen Monschau, Schleiden und Euskirchen mit den drei Weihnachtsmärkten und der Unterkunft in Wolfert">
         <a class="pin" style="left:48.78%;top:79%" href="https://www.openstreetmap.org/?mlat=50.4768&amp;mlon=6.4664#map=15/50.4768/6.4664" target="_blank" rel="noopener"><span class="dot"><span>Fr</span></span><span class="lbl">Reifferscheid</span></a>
         <a class="pin" style="left:17.22%;top:49.98%" href="https://www.openstreetmap.org/?mlat=50.5552&amp;mlon=6.2423#map=15/50.5552/6.2423" target="_blank" rel="noopener"><span class="dot"><span>Sa</span></span><span class="lbl">Monschau</span></a>
         <a class="pin" style="left:82.61%;top:26%" href="https://www.openstreetmap.org/?mlat=50.6199&amp;mlon=6.7065#map=15/50.6199/6.7065" target="_blank" rel="noopener"><span class="dot"><span>So</span></span><span class="lbl">Burg Satzvey</span></a>
+        <a class="pin home" style="left:48.72%;top:92.5%" href="https://www.openstreetmap.org/?mlat=50.4403&amp;mlon=6.4659#map=15/50.4403/6.4659" target="_blank" rel="noopener"><span class="dot"><span>🏠</span></span><span class="lbl">Wolfert</span></a>
         <figcaption>© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a></figcaption>
       </figure>
       <ul class="osm-links">
         <li><a href="https://www.openstreetmap.org/?mlat=50.4768&amp;mlon=6.4664#map=15/50.4768/6.4664" target="_blank" rel="noopener">Reifferscheid auf OpenStreetMap ↗</a></li>
         <li><a href="https://www.openstreetmap.org/?mlat=50.5552&amp;mlon=6.2423#map=15/50.5552/6.2423" target="_blank" rel="noopener">Monschau auf OpenStreetMap ↗</a></li>
         <li><a href="https://www.openstreetmap.org/?mlat=50.6199&amp;mlon=6.7065#map=15/50.6199/6.7065" target="_blank" rel="noopener">Burg Satzvey auf OpenStreetMap ↗</a></li>
+        <li><a href="https://www.openstreetmap.org/?mlat=50.4403&amp;mlon=6.4659#map=15/50.4403/6.4659" target="_blank" rel="noopener">Wolfert (Unterkunft) auf OpenStreetMap ↗</a></li>
       </ul>
     </div>
   </section>
@@ -258,23 +264,24 @@ footer p { margin: .3em 0; max-width: 80ch; }
         <article class="day">
           <div class="when"><small>Freitag · 27.11.</small>Burg bei Nacht</div>
           <ul>
-            <li><b>nachm.</b><span>Anreise in die Eifel, einchecken in Monschau</span></li>
+            <li><b>nachm.</b><span>Anreise in die Eifel, einchecken in Wolfert</span></li>
             <li><b>18:00</b><span>Weihnachtsmarkt Burg Reifferscheid, Freitagabend ist am ruhigsten</span></li>
-            <li><b>22:00</b><span>Markt schließt, zurück nach Monschau (ca. 30 min)</span></li>
+            <li><b>22:00</b><span>Markt schließt, zurück nach Wolfert, nur ein paar Minuten</span></li>
           </ul>
         </article>
         <article class="day">
           <div class="when"><small>Samstag · 28.11.</small>Monschau satt</div>
           <ul>
+            <li><b>10:15</b><span>Von Wolfert nach Monschau (ca. 35 min), Park &amp; Ride ab Höfen liegt auf dem Weg</span></li>
             <li><b>11:00</b><span>Altstadt Monschau, rund 35 Buden zwischen Fachwerk und Rur</span></li>
             <li><b>mittags</b><span>Senfmühle, Kaffee, Rumtreiben in den Gassen</span></li>
-            <li><b>abends</b><span>Lichter, Live-Musik und Turmbläser, Markt bis 21:00</span></li>
+            <li><b>abends</b><span>Lichter, Live-Musik und Turmbläser, Markt bis 21:00, dann zurück nach Wolfert</span></li>
           </ul>
         </article>
         <article class="day">
           <div class="when"><small>Sonntag · 29.11.</small>Ritter &amp; Krippe</div>
           <ul>
-            <li><b>vorm.</b><span>Gemütlich frühstücken, auschecken</span></li>
+            <li><b>vorm.</b><span>Gemütlich frühstücken, in Wolfert auschecken</span></li>
             <li><b>12:00</b><span>Burgweihnacht Satzvey: Wasserburg, mittelalterliches Krippenspiel</span></li>
             <li><b>nachm.</b><span>Heimfahrt, Satzvey liegt an der Strecke Richtung Köln</span></li>
           </ul>
@@ -355,7 +362,7 @@ footer p { margin: .3em 0; max-width: 80ch; }
       <p class="eyebrow">Gut zu wissen</p>
       <h2>Damit nichts schiefgeht</h2>
       <ul class="tips">
-        <li><b>Übernachtung früh buchen</b>Monschau ist am 1. Advent beliebt. Zentral übernachten heißt: Samstag kein Auto, kein Shuttle.</li>
+        <li><b>Unterkunft in Wolfert</b>Ortsteil von Hellenthal, gleich neben Reifferscheid. Freitagabend ist der Heimweg kurz. Samstag geht es mit dem Auto nach Monschau, am bequemsten über Park &amp; Ride in Höfen.</li>
         <li><b>Satzvey-Tickets jetzt kaufen</b>Für das 1. Adventswochenende meldet der <a href="https://tickets.burgsatzvey.de/event/burgweihnacht-1-adventswochenende-c7wecj" target="_blank" rel="noopener">Ticketshop</a> nur noch wenige Karten. Im Vorverkauf außerdem 3 € günstiger.</li>
         <li><b>Warm und wasserfest</b>Alle drei Märkte sind draußen, die Eifel ist Ende November gern nass und kalt.</li>
         <li><b>Fahrerfrage klären</b>Drei Märkte, viel Glühwein. Wir wechseln uns ab, oder einer bleibt beim alkoholfreien Punsch.</li>
