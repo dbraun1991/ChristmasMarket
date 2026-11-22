@@ -172,10 +172,10 @@ section h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 800; letter-s
 .pack-open { margin-top: 26px; font: 700 1rem var(--body); border-radius: 999px; padding: .75em 1.4em; border: 2px solid var(--fir); background: var(--fir); color: #fff; cursor: pointer; }
 .pack-open:hover { filter: brightness(1.08); }
 .pack-open:focus-visible, .pack-close:focus-visible { outline: 3px solid var(--glow); outline-offset: 3px; }
-dialog.pack { width: min(560px, calc(100vw - 32px)); max-height: calc(100dvh - 48px); padding: 0; border: 1px solid var(--line); border-radius: 20px;
+dialog.pack { overflow: auto; overscroll-behavior: contain; width: min(560px, calc(100vw - 32px)); max-height: calc(100dvh - 48px); padding: 0; border: 1px solid var(--line); border-radius: 20px;
   background: var(--surface); color: var(--text); box-shadow: 0 20px 60px rgb(0 0 0 / .35); }
 dialog.pack::backdrop { background: rgb(10 16 30 / .6); }
-.pack-head { position: sticky; top: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 22px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.pack-head { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 22px; background: var(--surface); border-bottom: 1px solid var(--line); }
 .pack-head h2 { font-size: 1.6rem; font-weight: 800; margin: 0; }
 .pack-head .count { color: var(--muted); font-size: .9rem; font-weight: 600; }
 .pack-close { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); color: var(--text); font-size: 1.3rem; cursor: pointer; }
