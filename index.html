@@ -158,6 +158,37 @@ section h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 800; letter-s
 .btns button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 #answer { min-height: 1.6em; font-weight: 700; color: #fbe3b4; }
 
+/* weather */
+.weather { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0 0 28px; padding: 0; list-style: none; }
+.wx { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); padding: 16px 18px; display: grid; gap: 4px; min-width: 0; }
+.wx small { color: var(--muted); font-weight: 600; font-size: .8rem; letter-spacing: .05em; text-transform: uppercase; }
+.wx .ic { font-size: 2rem; line-height: 1.1; }
+.wx .t { font: 800 1.5rem var(--display); font-variant-numeric: tabular-nums; }
+.wx .t span { color: var(--muted); font-size: 1rem; }
+.wx .d { color: var(--muted); font-size: .92rem; }
+@media (max-width: 640px) { .weather { grid-template-columns: 1fr; } .wx { grid-template-columns: auto 1fr; column-gap: 14px; } .wx .ic { grid-row: span 3; align-self: center; } }
+
+/* packing list */
+.pack-open { margin-top: 26px; font: 700 1rem var(--body); border-radius: 999px; padding: .75em 1.4em; border: 2px solid var(--fir); background: var(--fir); color: #fff; cursor: pointer; }
+.pack-open:hover { filter: brightness(1.08); }
+.pack-open:focus-visible, .pack-close:focus-visible { outline: 3px solid var(--glow); outline-offset: 3px; }
+dialog.pack { width: min(560px, calc(100vw - 32px)); max-height: calc(100dvh - 48px); padding: 0; border: 1px solid var(--line); border-radius: 20px;
+  background: var(--surface); color: var(--text); box-shadow: 0 20px 60px rgb(0 0 0 / .35); }
+dialog.pack::backdrop { background: rgb(10 16 30 / .6); }
+.pack-head { position: sticky; top: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 22px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.pack-head h2 { font-size: 1.6rem; font-weight: 800; margin: 0; }
+.pack-head .count { color: var(--muted); font-size: .9rem; font-weight: 600; }
+.pack-close { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); color: var(--text); font-size: 1.3rem; cursor: pointer; }
+.pack-body { padding: 8px 22px 22px; }
+.pack h3 { font-size: 1.1rem; margin: 18px 0 6px; }
+.pack h3.special { color: var(--berry); }
+.pack ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.pack ul ul { padding-left: 30px; }
+.pack label { display: flex; gap: 10px; align-items: baseline; padding: 4px 0; cursor: pointer; }
+.pack input { width: 18px; height: 18px; accent-color: var(--fir); flex: none; translate: 0 3px; }
+.pack input:checked + span { color: var(--muted); text-decoration: line-through; }
+.pack .hint { color: var(--muted); font-size: .88rem; }
+
 footer { padding-block: 28px 40px; color: var(--muted); font-size: .88rem; border-top: 1px solid var(--line); }
 footer p { margin: .3em 0; max-width: 80ch; }
 
@@ -359,7 +390,15 @@ footer p { margin: .3em 0; max-width: 80ch; }
 
   <section style="padding-top:0">
     <div class="wrap">
-      <p class="eyebrow">Gut zu wissen</p>
+      <p class="eyebrow">Wetter</p>
+      <h2>Was der Himmel sagt</h2>
+      <ul class="weather" id="weather" aria-live="polite">
+        <li class="wx"><small>Freitag · Reifferscheid</small><span class="d">Vorhersage wird geladen …</span></li>
+        <li class="wx"><small>Samstag · Monschau</small><span class="d">Vorhersage wird geladen …</span></li>
+        <li class="wx"><small>Sonntag · Burg Satzvey</small><span class="d">Vorhersage wird geladen …</span></li>
+      </ul>
+      <p class="note" id="weather-note">Vorhersage von <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>, wird bei jedem Aufruf neu geladen.</p>
+      <p class="eyebrow" style="margin-top:36px">Gut zu wissen</p>
       <h2>Damit nichts schiefgeht</h2>
       <ul class="tips">
         <li><b>Unterkunft in Wolfert</b>Ortsteil von Hellenthal, gleich neben Reifferscheid. Freitagabend ist der Heimweg kurz. Samstag geht es mit dem Auto nach Monschau, am bequemsten über Park &amp; Ride in Höfen.</li>
@@ -367,6 +406,23 @@ footer p { margin: .3em 0; max-width: 80ch; }
         <li><b>Warm und wasserfest</b>Alle drei Märkte sind draußen, die Eifel ist Ende November gern nass und kalt.</li>
         <li><b>Fahrerfrage klären</b>Drei Märkte, viel Glühwein. Wir wechseln uns ab, oder einer bleibt beim alkoholfreien Punsch.</li>
       </ul>
+      <button type="button" class="pack-open" id="pack-open">🎒 Packliste ansehen</button>
+      <dialog class="pack" id="pack" aria-labelledby="pack-title">
+        <div class="pack-head">
+          <div><h2 id="pack-title">Packliste</h2><span class="count" id="pack-count"></span></div>
+          <button type="button" class="pack-close" id="pack-close" aria-label="Packliste schließen">✕</button>
+        </div>
+        <div class="pack-body">
+      <h3 class="special">Specials</h3>
+      <ul><li><label><input type="checkbox"><span>Bademantel</span></label></li><li><label><input type="checkbox"><span>Schuhe</span></label><ul><li><label><input type="checkbox"><span>Weihnachtsmarkt-Schuhe <span class="hint">warm, bequem, für langes Stehen</span></span></label></li><li><label><input type="checkbox"><span>Schlamm-Boots</span></label></li><li><label><input type="checkbox"><span>Laufschuhe</span></label></li></ul></li><li><label><input type="checkbox"><span>Buch</span></label></li><li><label><input type="checkbox"><span>Powerbank</span></label></li></ul>
+      <h3>Kleidung</h3>
+      <ul><li><label><input type="checkbox"><span>Warme, wasserfeste Jacke</span></label></li><li><label><input type="checkbox"><span>Mütze, Schal, Handschuhe</span></label></li><li><label><input type="checkbox"><span>Pulli oder Fleece</span></label></li><li><label><input type="checkbox"><span>Thermo-Unterwäsche</span></label></li><li><label><input type="checkbox"><span>Wollsocken <span class="hint">lieber ein Paar mehr</span></span></label></li><li><label><input type="checkbox"><span>Laufsachen</span></label></li><li><label><input type="checkbox"><span>Wechselsachen für 3 Tage</span></label></li><li><label><input type="checkbox"><span>Schlafsachen</span></label></li></ul>
+      <h3>Unterwegs</h3>
+      <ul><li><label><input type="checkbox"><span>Ausweis, Führerschein</span></label></li><li><label><input type="checkbox"><span>Bargeld <span class="hint">viele Buden nehmen nur bar</span></span></label></li><li><label><input type="checkbox"><span>EC- oder Kreditkarte</span></label></li><li><label><input type="checkbox"><span>Satzvey-Tickets <span class="hint">aufs Handy oder ausgedruckt</span></span></label></li><li><label><input type="checkbox"><span>Handy und Ladekabel</span></label></li><li><label><input type="checkbox"><span>Stoffbeutel für Markt-Einkäufe</span></label></li><li><label><input type="checkbox"><span>Thermosflasche</span></label></li></ul>
+      <h3>Kulturbeutel</h3>
+      <ul><li><label><input type="checkbox"><span>Zahnbürste, Zahnpasta, Duschzeug</span></label></li><li><label><input type="checkbox"><span>Lippenpflege und Handcreme <span class="hint">kalte Luft</span></span></label></li><li><label><input type="checkbox"><span>Medikamente, Pflaster</span></label></li></ul>
+        </div>
+      </dialog>
     </div>
   </section>
 
@@ -433,6 +489,66 @@ footer p { margin: .3em 0; max-width: 80ch; }
   }
   addEventListener('resize', () => { size(); if (still) draw(); });
   size(); draw();
+
+  // Packing list: dialog, checks remembered in this browser only
+  const dlg = document.getElementById('pack');
+  const boxes = [...dlg.querySelectorAll('input[type=checkbox]')];
+  const KEY = 'eifel-packliste';
+  let saved = [];
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) {}
+  const count = document.getElementById('pack-count');
+  const tally = () => { count.textContent = `${boxes.filter(b => b.checked).length} von ${boxes.length} eingepackt`; };
+  boxes.forEach((b, i) => {
+    b.checked = !!saved[i];
+    b.addEventListener('change', () => {
+      tally();
+      try { localStorage.setItem(KEY, JSON.stringify(boxes.map(x => x.checked))); } catch (e) {}
+    });
+  });
+  tally();
+  document.getElementById('pack-open').addEventListener('click', () => dlg.showModal());
+  document.getElementById('pack-close').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+
+  // Weather: Open-Meteo daily forecast for each day's location
+  const days = [
+    { date: '2026-11-27', lat: 50.4768, lon: 6.4664 },
+    { date: '2026-11-28', lat: 50.5552, lon: 6.2423 },
+    { date: '2026-11-29', lat: 50.6199, lon: 6.7065 }
+  ];
+  const WMO = [
+    [[0], '☀️', 'klar'], [[1], '🌤️', 'überwiegend klar'], [[2], '⛅', 'teils bewölkt'], [[3], '☁️', 'bedeckt'],
+    [[45, 48], '🌫️', 'Nebel'], [[51, 53, 55, 56, 57], '🌦️', 'Nieselregen'], [[61, 63, 65, 66, 67, 80, 81, 82], '🌧️', 'Regen'],
+    [[71, 73, 75, 77, 85, 86], '🌨️', 'Schnee'], [[95, 96, 99], '⛈️', 'Gewitter']
+  ];
+  const wmo = c => WMO.find(([cs]) => cs.includes(c)) || [null, '🌡️', ''];
+  const cards = document.querySelectorAll('#weather .wx');
+  const q = new URLSearchParams({
+    latitude: days.map(d => d.lat).join(','), longitude: days.map(d => d.lon).join(','),
+    daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max',
+    timezone: 'Europe/Berlin', start_date: days[0].date, end_date: days[2].date
+  });
+  fetch('https://api.open-meteo.com/v1/forecast?' + q)
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(data => {
+      const list = Array.isArray(data) ? data : [data];
+      days.forEach((d, i) => {
+        const dl = list[i] && list[i].daily, j = dl ? dl.time.indexOf(d.date) : -1;
+        const card = cards[i], label = card.querySelector('small').outerHTML;
+        if (j < 0 || dl.temperature_2m_max[j] == null) {
+          card.innerHTML = label + '<span class="d">Noch zu weit weg für eine Vorhersage.</span>'; return;
+        }
+        const [, icon, text] = wmo(dl.weather_code[j]);
+        const rain = dl.precipitation_probability_max[j];
+        card.innerHTML = label +
+          `<span class="ic" aria-hidden="true">${icon}</span>` +
+          `<span class="t">${Math.round(dl.temperature_2m_max[j])}° <span>/ ${Math.round(dl.temperature_2m_min[j])}°</span></span>` +
+          `<span class="d">${text}${rain != null ? ` · Regen ${rain} %` : ''}</span>`;
+      });
+    })
+    .catch(() => {
+      cards.forEach(c => { c.innerHTML = c.querySelector('small').outerHTML + '<span class="d">Vorhersage gerade nicht erreichbar.</span>'; });
+    });
 
   // Answer buttons (local only)
   const out = document.getElementById('answer');
