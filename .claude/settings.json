@@ -1,0 +1,6 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "python3 /home/parrot/code/devland/ChristmasMarket/.claude/statusline.py"
+  }
+}

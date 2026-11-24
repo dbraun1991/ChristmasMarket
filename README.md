@@ -26,3 +26,23 @@ Stand 22.11.2026.
 ## Lizenz
 
 Code: MIT, siehe [LICENSE](LICENSE). Kartendaten: © OpenStreetMap-Mitwirkende, ODbL.
+
+## Ideen und Runner
+
+Neue Ideen landen als nummerierte Dateien in [docs/ideas/](docs/ideas/README.md). Eine zweite
+Claude-Code-Sitzung, der **Runner**, setzt Ideen mit Status `Agent Ready` nacheinander um, die mit dem
+höchsten Value zuerst ([ADR 0001](docs/adrs/0001-idea-backlog-with-runner-agent.md)):
+
+```sh
+cd ~/code/devland/ChristmasMarket
+claude
+> /runner            # ein Lauf
+> /loop 2h /runner   # über Nacht alle zwei Stunden
+```
+
+- Die Hauptsitzung (das normale Gespräch) legt Ideen ab, schreibt Akzeptanzkriterien, vergibt Value
+  und `Agent Ready`, fragt bei Unklarem und schreibt selbst keinen Code ([ADR 0002](docs/adrs/0002-main-session-directs-the-backlog.md)).
+- Der Runner entscheidet nichts und schreibt keine ADRs; bei offenen Fragen setzt er `Klärung nötig`.
+  Er beginnt eine neue Idee nur, solange die Auslastung unter 80 % (5 h) und 60 % (Woche) liegt.
+- Jede umgesetzte Idee wird ein eigener git-Commit; **pushen machst du.**
+- Protokoll: [docs/ideas/RUNNER.md](docs/ideas/RUNNER.md) (in allen devland-Projekten gleich).
