@@ -66,7 +66,6 @@ flowchart TD
 
 | # | Idee | Value | Hinweis |
 |---|---|---|---|
-| [0003](0003-zeitvertreib.md) | Zeitvertreib — Gitarre, Joggen, Harry Potter | 5 | Sektion nach Verpflegung; Packliste: „Buch (Harry Potter)“, Hinweis Laufhandschuhe |
 
 ## In Arbeit
 
@@ -89,6 +88,7 @@ flowchart TD
 |---|---|---|---|
 | [0001](0001-verpflegung.md) | Verpflegung — eigenes Essen neben den Buden | 6 | 2026-11-25 · Sektion nach dem Ablauf, Packlisten-Kategorie „Küche & Verpflegung“ |
 | [0002](0002-packliste-haken-nach-eintrag.md) | Packlisten-Haken nach Eintrag statt Position speichern | 7 | 2026-11-25 · `data-id` je Eintrag, Objekt unter `eifel-packliste-v2` |
+| [0003](0003-zeitvertreib.md) | Zeitvertreib — Gitarre, Joggen, Harry Potter | 5 | 2026-11-25 · Sektion nach Verpflegung, „Buch (Harry Potter)“, Hinweis Laufhandschuhe |
 
 ## Verworfen
 

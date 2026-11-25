@@ -1,6 +1,6 @@
 # 0003: Zeitvertreib — Gitarre, Joggen, Harry Potter
 
-Status: Agent Ready · Value: 5 · Stand: 2026-11-25
+Status: Umgesetzt · Value: 5 · Stand: 2026-11-25
 Quelle: Diktat 2026-11-25
 Berührt: index.html
 Konflikte: –
@@ -43,4 +43,26 @@ Keine. Geklärt am 2026-11-25:
 
 ## Umsetzung
 
-–
+Runner, 2026-11-25.
+
+**Geändert:** `index.html`
+- Neue Sektion „Zeitvertreib“ (Eyebrow) / „Was wir sonst noch machen“ (h2) direkt nach
+  „Was wir selbst essen“ und vor „Was uns erwartet“. Satz: „Neben den Märkten und dem Kochen bleibt
+  Zeit für anderes.“ Drei Karten mit denselben Klassen wie die Verpflegung (`.meals`/`.meal`):
+  „Gitarre spielen“, „Joggen“ (Hinweis „Laufen gehen“), „Lesen: Harry Potter“.
+- Packliste: „Buch“ → „Buch (Harry Potter)“, `data-id="buch"` unverändert; „Laufsachen“ bekommt
+  `<span class="hint">inkl. Laufhandschuhe</span>`, sonst unverändert.
+
+**Selbsttest:** keiner vorhanden (statische Seite, `scripts/mkmap.py` nicht geändert).
+
+**Kriterien geprüft** (Chrome, lokal über `python3 -m http.server`):
+- Reihenfolge der Eyebrows per DOM: … Verpflegung, Zeitvertreib, Die drei Märkte … ✔
+- Kartentitel genau die drei Zeitvertreibe, Satz „neben Märkten und Kochen“ vorhanden ✔
+- Stil: gleiche Klassen wie Verpflegung, Screenshot Desktop geprüft; Handy: in 390-px-iframe
+  einspaltig, `scrollWidth == clientWidth` (kein horizontales Scrollen) ✔
+- „Buch (Harry Potter)“ / „Laufsachen inkl. Laufhandschuhe“ im DOM ✔; gespeicherte Haken
+  `{buch, laufsachen}` unter `eifel-packliste-v2` nach Reload weiter gesetzt (ADR 0003) ✔
+- Keine Gitarre in der Packliste, keine neuen Einträge: 24 Checkboxen vorher und nachher,
+  Zähler „x von 24 eingepackt“ ✔
+
+Nicht geprüft: echtes Handy (nur iframe-Simulation, Fenster ließ sich nicht verkleinern).
