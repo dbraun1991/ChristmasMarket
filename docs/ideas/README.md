@@ -66,6 +66,7 @@ flowchart TD
 
 | # | Idee | Value | Hinweis |
 |---|---|---|---|
+| [0001](0001-verpflegung.md) | Verpflegung — eigenes Essen neben den Buden | 6 | eigene Sektion + Packlisten-Kategorie |
 
 ## In Arbeit
 
@@ -81,7 +82,6 @@ flowchart TD
 
 | # | Idee | Value | Hinweis |
 |---|---|---|---|
-| [0001](0001-verpflegung.md) | Verpflegung — eigenes Essen neben den Buden | 6 | 4 offene Fragen (Platz, Packliste, Zutaten, Utensilien) |
 
 ## Umgesetzt
 
