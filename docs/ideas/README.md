@@ -66,7 +66,8 @@ flowchart TD
 
 | # | Idee | Value | Hinweis |
 |---|---|---|---|
-| [0001](0001-verpflegung.md) | Verpflegung — eigenes Essen neben den Buden | 6 | eigene Sektion + Packlisten-Kategorie |
+| [0002](0002-packliste-haken-nach-eintrag.md) | Packlisten-Haken nach Eintrag statt Position speichern | 7 | keine Migration |
+| [0001](0001-verpflegung.md) | Verpflegung — eigenes Essen neben den Buden | 6 | eigene Sektion + Packlisten-Kategorie; wartet auf 0002 |
 
 ## In Arbeit
 

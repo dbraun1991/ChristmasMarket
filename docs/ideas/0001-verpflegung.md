@@ -4,7 +4,7 @@ Status: Agent Ready · Value: 6 · Stand: 2026-11-25
 Quelle: Diktat 2026-11-25
 Berührt: index.html
 Konflikte: –
-Hängt ab von: –
+Hängt ab von: Idee 0002 (Haken nach Eintrag speichern)
 
 ## Idee
 
@@ -37,9 +37,8 @@ Bereich „Verpflegung“, und die Packliste bekommt die nötigen Utensilien.
 - Die Packliste bekommt eine neue Kategorie „Küche & Verpflegung“ mit genau zwei Einträgen:
   „Overnight-Schale“ und „Protein-Shaker“. Keine Zutaten und keine weiteren Utensilien.
 - Der Zähler „x von y eingepackt“ zählt die neuen Einträge mit.
-- Bereits gesetzte Haken der Packliste bleiben nach dem Update auf denselben Einträgen. Die Haken
-  werden heute nach Position gespeichert (`eifel-packliste` in localStorage), die neuen Einträge
-  dürfen sie also nicht verschieben (z. B. neue Kategorie ans Ende der Packliste).
+- Die beiden neuen Einträge bekommen eigene Schlüssel nach dem Schema aus Idee 0002. Die neue
+  Kategorie steht dort in der Packliste, wo sie inhaltlich passt.
 - Stil und Aufbau passen zum Rest der Seite (kein Build-Schritt, alles inline in `index.html`),
   auch auf dem Handy ohne horizontales Scrollen.
 
