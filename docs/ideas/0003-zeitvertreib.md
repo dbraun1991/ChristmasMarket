@@ -25,8 +25,11 @@ auf der Seite stehen:
   dem Handy ohne horizontales Scrollen. Kein Build-Schritt, alles inline in `index.html`.
 - Packliste: Der bestehende Eintrag „Buch“ heißt künftig „Buch (Harry Potter)“; sein Schlüssel
   `data-id="buch"` bleibt unverändert (ADR 0003), ein gesetzter Haken bleibt also erhalten.
-- Packliste: **keine** Gitarre (wird nur auf der Seite erwähnt), keine weiteren neuen Einträge.
-  Laufschuhe und Laufsachen stehen schon drauf und bleiben, wie sie sind.
+- Packliste: Der bestehende Eintrag „Laufsachen“ bekommt einen Hinweis im vorhandenen
+  `hint`-Stil: „inkl. Laufhandschuhe“. Text, Schlüssel (`data-id="laufsachen"`) und Platz des
+  Eintrags bleiben sonst unverändert.
+- Packliste: **keine** Gitarre (wird nur auf der Seite erwähnt), keine neuen Einträge. Laufschuhe
+  bleiben, wie sie sind.
 - Der Zähler „x von y eingepackt“ bleibt dadurch bei derselben Gesamtzahl.
 
 ## Offene Fragen
@@ -35,6 +38,8 @@ Keine. Geklärt am 2026-11-25:
 1. Platz: eigene Sektion nach Verpflegung.
 2. Packliste: Gitarre nur auf der Seite erwähnen („die nehme ich mit“), Buch explizit als Harry
    Potter.
+3. Laufen: Handschuhe als Hinweis bei „Laufsachen“ erwähnen, kein eigener Eintrag
+   (Nachtrag 2026-11-25).
 
 ## Umsetzung
 

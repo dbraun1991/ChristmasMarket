@@ -66,7 +66,7 @@ flowchart TD
 
 | # | Idee | Value | Hinweis |
 |---|---|---|---|
-| [0003](0003-zeitvertreib.md) | Zeitvertreib — Gitarre, Joggen, Harry Potter | 5 | Sektion nach Verpflegung; Packliste nur „Buch (Harry Potter)“ |
+| [0003](0003-zeitvertreib.md) | Zeitvertreib — Gitarre, Joggen, Harry Potter | 5 | Sektion nach Verpflegung; Packliste: „Buch (Harry Potter)“, Hinweis Laufhandschuhe |
 
 ## In Arbeit
 
