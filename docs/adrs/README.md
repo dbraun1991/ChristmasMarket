@@ -11,3 +11,4 @@ Format: `NNNN-kurzer-titel.md` mit Status, Context, Decision, Consequences.
 |-----|-------|--------|
 | [0001](0001-idea-backlog-with-runner-agent.md) | Ideen-Backlog mit Runner-Agent (`/runner`) | Accepted |
 | [0002](0002-main-session-directs-the-backlog.md) | Hauptsitzung führt den Backlog (Value, Kriterien), schreibt keinen Code | Accepted |
+| [0003](0003-packing-list-checks-keyed-by-item.md) | Packlisten-Haken nach Eintrag (Schlüssel) speichern, nicht nach Position | Accepted |

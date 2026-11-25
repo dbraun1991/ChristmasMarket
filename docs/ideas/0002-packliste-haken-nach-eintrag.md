@@ -4,6 +4,7 @@ Status: Agent Ready · Value: 7 · Stand: 2026-11-25
 Quelle: Diktat 2026-11-25, bei Idee 0001
 Berührt: index.html
 Konflikte: –
+Entscheidung: [ADR 0003](../adrs/0003-packing-list-checks-keyed-by-item.md)
 Hängt ab von: –
 
 ## Idee
@@ -24,7 +25,7 @@ Stattdessen soll jeder Eintrag einen festen Schlüssel haben und die Haken als J
   führen zu keinem Fehler (z. B. neuer localStorage-Schlüssel).
 - Zähler „x von y eingepackt“, Öffnen/Schließen des Dialogs und das Verhalten ohne localStorage
   (try/catch) funktionieren wie bisher.
-- Ein Code-Kommentar beim Speichern erklärt kurz, warum nach Schlüssel statt Position gespeichert
+- Ein Code-Kommentar beim Speichern sagt `ADR 0003: …` und erklärt kurz, warum nach Schlüssel statt Position gespeichert
   wird.
 
 ## Offene Fragen
