@@ -128,6 +128,14 @@ section h2 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 800; letter-s
 .alt { margin-top: 22px; padding: 14px 18px; border-radius: 14px; background: var(--glow-soft); color: var(--text); max-width: 70ch; }
 .alt p { margin: 0; }
 
+/* meals */
+.meals { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.meal { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); padding: 22px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.meal h3 { font-size: 1.45rem; font-weight: 800; }
+.meal ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; font-size: .97rem; }
+.meal .hint { color: var(--muted); font-size: .9rem; }
+.meal li .hint { display: block; }
+
 /* markets */
 .markets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .market { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); padding: 22px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
@@ -182,7 +190,7 @@ footer p { margin: .3em 0; max-width: 80ch; }
 
 @media (max-width: 520px) { .moon { width: 52px; top: 4%; right: 5%; } }
 @media (max-width: 820px) {
-  .days, .markets { grid-template-columns: minmax(0, 1fr); }
+  .days, .markets, .meals { grid-template-columns: minmax(0, 1fr); }
   .tips { grid-template-columns: minmax(0, 1fr); }
 }
 </style>
@@ -314,6 +322,38 @@ footer p { margin: .3em 0; max-width: 80ch; }
 
   <section style="padding-top:0">
     <div class="wrap">
+      <p class="eyebrow">Verpflegung</p>
+      <h2>Was wir selbst essen</h2>
+      <p style="margin:0 0 18px;max-width:70ch">Als Ergänzung zu den Essensbuden auf den Märkten nehmen wir eigenes Essen mit.</p>
+      <div class="meals">
+        <article class="meal">
+          <h3>Morgens</h3>
+          <ul>
+            <li>Müsli als Overnight Oats <span class="hint">Hafer, Haferdrink, TK-Beeren, Proteinpulver</span></li>
+          </ul>
+        </article>
+        <article class="meal">
+          <h3>Mittags <span class="hint">zur Auswahl</span></h3>
+          <ul>
+            <li>Linsendal mit Tomate und Kokosmilch</li>
+            <li>HotWater-Outdoor-SnackMeals</li>
+            <li>Omelett mit Gemüse</li>
+            <li>Nudeln oder Reis mit Tofu und Gemüse (Curry)</li>
+          </ul>
+        </article>
+        <article class="meal">
+          <h3>Getränke</h3>
+          <ul>
+            <li>Wasser / Tee</li>
+            <li>Proteinshake</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
       <p class="eyebrow">Die drei Märkte</p>
       <h2>Was uns erwartet</h2>
       <div class="markets">
@@ -407,6 +447,8 @@ footer p { margin: .3em 0; max-width: 80ch; }
       <ul><li><label><input type="checkbox" data-id="warme-jacke"><span>Warme, wasserfeste Jacke</span></label></li><li><label><input type="checkbox" data-id="muetze-schal-handschuhe"><span>Mütze, Schal, Handschuhe</span></label></li><li><label><input type="checkbox" data-id="pulli-fleece"><span>Pulli oder Fleece</span></label></li><li><label><input type="checkbox" data-id="thermo-unterwaesche"><span>Thermo-Unterwäsche</span></label></li><li><label><input type="checkbox" data-id="wollsocken"><span>Wollsocken <span class="hint">lieber ein Paar mehr</span></span></label></li><li><label><input type="checkbox" data-id="laufsachen"><span>Laufsachen</span></label></li><li><label><input type="checkbox" data-id="wechselsachen"><span>Wechselsachen für 3 Tage</span></label></li><li><label><input type="checkbox" data-id="schlafsachen"><span>Schlafsachen</span></label></li></ul>
       <h3>Unterwegs</h3>
       <ul><li><label><input type="checkbox" data-id="ausweis-fuehrerschein"><span>Ausweis, Führerschein</span></label></li><li><label><input type="checkbox" data-id="bargeld"><span>Bargeld <span class="hint">viele Buden nehmen nur bar</span></span></label></li><li><label><input type="checkbox" data-id="ec-kreditkarte"><span>EC- oder Kreditkarte</span></label></li><li><label><input type="checkbox" data-id="satzvey-tickets"><span>Satzvey-Tickets <span class="hint">aufs Handy oder ausgedruckt</span></span></label></li><li><label><input type="checkbox" data-id="handy-ladekabel"><span>Handy und Ladekabel</span></label></li><li><label><input type="checkbox" data-id="stoffbeutel"><span>Stoffbeutel für Markt-Einkäufe</span></label></li><li><label><input type="checkbox" data-id="thermosflasche"><span>Thermosflasche</span></label></li></ul>
+      <h3>Küche &amp; Verpflegung</h3>
+      <ul><li><label><input type="checkbox" data-id="overnight-schale"><span>Overnight-Schale</span></label></li><li><label><input type="checkbox" data-id="protein-shaker"><span>Protein-Shaker</span></label></li></ul>
         </div>
       </dialog>
     </div>

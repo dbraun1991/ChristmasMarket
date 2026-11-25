@@ -1,6 +1,6 @@
 # 0001: Verpflegung — eigenes Essen neben den Buden
 
-Status: Agent Ready · Value: 6 · Stand: 2026-11-25
+Status: Umgesetzt · Value: 6 · Stand: 2026-11-25
 Quelle: Diktat 2026-11-25
 Berührt: index.html
 Konflikte: –
@@ -52,4 +52,26 @@ Keine. Geklärt am 2026-11-25:
 
 ## Umsetzung
 
-(trägt der Runner ein)
+Runner, 2026-11-25.
+
+**Geändert:** `index.html`
+- Neue Sektion (Eyebrow „Verpflegung“, Überschrift „Was wir selbst essen“) direkt nach „Freitag
+  bis Sonntag“, mit Satz „Als Ergänzung zu den Essensbuden auf den Märkten …“ und drei Karten
+  **Morgens** (Overnight Oats mit Zutaten Hafer, Haferdrink, TK-Beeren, Proteinpulver),
+  **Mittags** („zur Auswahl“, die vier Gerichte) und **Getränke** (Wasser / Tee, Proteinshake).
+- CSS `.meals` / `.meal` im Stil der Markt-Karten, unter 820 px einspaltig.
+- Packliste: neue Kategorie „Küche & Verpflegung“ als letzte, nach „Unterwegs“ (dort steht schon
+  die Thermosflasche), mit „Overnight-Schale“ (`data-id="overnight-schale"`) und
+  „Protein-Shaker“ (`data-id="protein-shaker"`).
+
+**Selbsttest:** keiner vorhanden (statische Seite).
+
+**Kriterien geprüft** (Headless-Chrome, Testkopie im Scratchpad):
+- Reihenfolge der Überschriften: … › Freitag bis Sonntag › Was wir selbst essen › Was uns erwartet.
+- Inhalte: Screenshots bei 1280 px und 500 px angesehen, genau die Gerichte/Getränke aus der Idee.
+- Zähler: „0 von 24 eingepackt“ (vorher 22), nach Abhaken des Protein-Shakers „1 von 24“ und
+  gespeichert als `{"protein-shaker":true}`.
+- Schlüssel: keine doppelten `data-id`.
+- Handy: bei 500 px Breite `scrollWidth` < Fensterbreite, also kein horizontales Scrollen. Schmaler
+  als 500 px ließ Headless-Chrome nicht zu; 375 px im echten Handy nicht geprüft.
+- Dunkelmodus nicht angesehen (nur bestehende Farbvariablen verwendet).

@@ -66,7 +66,6 @@ flowchart TD
 
 | # | Idee | Value | Hinweis |
 |---|---|---|---|
-| [0001](0001-verpflegung.md) | Verpflegung — eigenes Essen neben den Buden | 6 | eigene Sektion + Packlisten-Kategorie; wartet auf 0002 |
 
 ## In Arbeit
 
@@ -87,6 +86,7 @@ flowchart TD
 
 | # | Idee | Value | Datum · Ergebnis |
 |---|---|---|---|
+| [0001](0001-verpflegung.md) | Verpflegung — eigenes Essen neben den Buden | 6 | 2026-11-25 · Sektion nach dem Ablauf, Packlisten-Kategorie „Küche & Verpflegung“ |
 | [0002](0002-packliste-haken-nach-eintrag.md) | Packlisten-Haken nach Eintrag statt Position speichern | 7 | 2026-11-25 · `data-id` je Eintrag, Objekt unter `eifel-packliste-v2` |
 
 ## Verworfen
